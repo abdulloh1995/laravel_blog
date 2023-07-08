@@ -87,4 +87,19 @@ class PostController extends Controller
         $post->delete();
         dd('post deleted');
     }
+
+    public function firstOrCreate()
+    {
+        $myPost = Post::firstOrCreate([
+            "title" => "big title 123"
+        ], [
+            "title" => "big title",
+            "content" => "big content 123",
+            "image" => "big image",
+            "likes" => 20,
+            "is_published" => 1
+        ]);
+        dump($myPost->content);
+        dd('end');
+    }
 }
